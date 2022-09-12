@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AppCustoViagem.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,6 +16,39 @@ namespace AppCustoViagem.View
         public Listagem()
         {
             InitializeComponent();
+        }
+
+        private void ToolbarItem_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new Formulario());
+        }
+
+        protected override void OnAppearing()
+        {
+            try
+            {
+                lst_pedagios.ItemsSource = App.ListaPedagios;
+            } catch (Exception ex)
+            {
+                DisplayAlert("Ops", ex.Message, "Ok");
+            }
+        }
+
+        private async void MenuItem_Clicked(object sender, EventArgs e)
+        {
+            MenuItem disparador = (MenuItem)sender;
+
+            Pedagio pedagio_selecionado = (Pedagio)disparador.BindingContext;
+
+            bool confirmacao = await DisplayAlert("Tem Certeza?",
+                                                  "Excluir pedágio " + pedagio_selecionado.Localização + "?",
+                                                  "Sim", "Não");
+            if (confirmacao)
+            {
+                App.ListaPedagios.Remove(pedagio_selecionado);
+
+                lst_pedagios.ItemsSource = App.ListaPedagios;
+            }
         }
     }
 }

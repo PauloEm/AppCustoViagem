@@ -55,10 +55,9 @@
                         </Label>
                     </StackLayout>
                     <Label x:Name="lbl_custo_viagem" FontSize="Title" HorizontalTextAlignment="Center" TextColor="Red"/>
-                    
-
                 </StackLayout>
             </Frame>
         </StackLayout>
+        
     </ContentPage.Content>
 </ContentPage>
