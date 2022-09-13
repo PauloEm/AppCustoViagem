@@ -11,7 +11,7 @@
         </Style>
 
         <Style TargetType="Frame">
-            <Setter Property="BackgroundColor" Value="#EEE" />
+            <Setter Property="BackgroundColor" Value="White" />
             <Setter Property="HasShadow" Value="True" />
             <Setter Property="CornerRadius" Value="5" />
             <Setter Property="Padding" Value="10" />
