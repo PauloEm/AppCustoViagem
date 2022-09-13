@@ -11,11 +11,12 @@ namespace AppCustoViagem
     public partial class App : Application
     {
         public static ObservableCollection<Pedagio> ListaPedagios = new ObservableCollection<Pedagio>();
+
         public App()
         {
             InitializeComponent();
 
-            Thread.CurrentThread.CurrentCulture = new cultureInfo("pt-Br");
+            Thread.CurrentThread.CurrentCulture = new CultureInfo("pt-BR");
 
             MainPage = new NavigationPage(new DadosViagem());
         }
@@ -31,16 +32,5 @@ namespace AppCustoViagem
         protected override void OnResume()
         {
         }
-    }
-
-    internal class cultureInfo : CultureInfo
-    {
-        public cultureInfo(string name) : base(name)
-        {
-        }
-    }
-
-    internal class MainPage : Page
-    {
     }
 }

@@ -2,62 +2,88 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="AppCustoViagem.View.DadosViagem"
-             Title="Dados Viagem">
+             Title="Dados da Viagem"
+             BackgroundImage = "ProjetoCustoViagem.png">
+
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Pedagios" Clicked="ToolbarItem_Clicked_Pedagios" />
-        <ToolbarItem Text="Soma" Clicked="ToolbarItem_Clicked_Soma" />
+        <ToolbarItem Text="Pedágios" Clicked="ToolbarItem_Clicked_Pedagios" />
+        <ToolbarItem Text="Somar" Clicked="ToolbarItem_Clicked_Somar" />
     </ContentPage.ToolbarItems>
 
-    <ContentPage.Content>
-        <StackLayout>
-            <Frame Margin="5" HasShadow="True" CornerRadius="10">
-                <Grid RowDefinitions=" *, *, *, *" ColumnDefinitions="Auto, *">
-                    <Label Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" Text="Viagem" />
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Label">
+                <Setter Property="VerticalTextAlignment" Value="Center" />
+                <Setter Property="HorizontalTextAlignment" Value="End" />
+                <Setter Property="FontSize" Value="Medium" />
+                <Setter Property="TextColor" Value="#444" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
 
-                    <Label Grid.Column="0" Grid.Row="1" Text="Origem" />
+    <ContentPage.Content>
+
+        <StackLayout VerticalOptions="CenterAndExpand">
+            <Frame>
+                <Grid RowSpacing="0" RowDefinitions="*, *, *, *" ColumnDefinitions="Auto, *">
+                    <Label Grid.Column="0" 
+                           Grid.Row="0" 
+                           Grid.ColumnSpan="2" 
+                           Text="Viagem"
+                           Style="{StaticResource Titulo}" />
+
+                    <Label Grid.Column="0" Grid.Row="1" Text="Origem:" />
                     <Entry Grid.Column="1" Grid.Row="1" x:Name="txt_origem" />
-                    <Label Grid.Column="0" Grid.Row="2" Text="Destino" />
+
+                    <Label Grid.Column="0" Grid.Row="2" Text="Destino:" />
                     <Entry Grid.Column="1" Grid.Row="2" x:Name="txt_destino" />
-                    <Label Grid.Column="0" Grid.Row="3" Text="Distancia" />
+
+                    <Label Grid.Column="0" Grid.Row="3" Text="Distância:" />
                     <Entry Grid.Column="1" Grid.Row="3" x:Name="txt_distancia" />
                 </Grid>
             </Frame>
-            <Frame Margin="5" HasShadow="True" CornerRadius="10">
-                <Grid RowDefinitions="*, *, *" ColumnDefinitions="Auto,*">
-                    <Label Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" Text="Custo"/>
+            <Frame>
+                <Grid RowSpacing="0" RowDefinitions="*, *, *" ColumnDefinitions="Auto, *">
+                    <Label Grid.Column="0" 
+                           Grid.Row="0" 
+                           Grid.ColumnSpan="2" 
+                           Text="Custo"
+                           Style="{StaticResource Titulo}" />
 
-                    <Label Grid.Column="0" Grid.Row="1" Text="Km/l"/>
-                    <Entry Grid.Column="1" Grid.Row="1" x:Name="txt_km_litro" Placeholder="Eficiência do veículo em km/l"/>
-                    <Label Grid.Column="0" Grid.Row="2" Text="Combustivel"/>
-                    <Entry Grid.Column="1" Grid.Row="2" x:Name="txt_preco_combustivel" Placeholder="Preço do combustivel em R$"/>
+                    <Label Grid.Column="0" Grid.Row="1" Text="Km/L:" />
+                    <Entry Grid.Column="1" Grid.Row="1" x:Name="txt_km_litro" Placeholder="Eficiencia"  />
 
+                    <Label Grid.Column="0" Grid.Row="2" Text="Combustível:" />
+                    <Entry Grid.Column="1" Grid.Row="2" x:Name="txt_preco_combustivel" Placeholder="Preço do combustível" />
                 </Grid>
             </Frame>
-            <Frame Margin="5" HasShadow="True" CornerRadius="10">
+            <Frame x:Name="frm_custo_viagem" IsVisible="False">
                 <StackLayout>
-                    <Label Text="Custo da Viagem"/>
+                    <Label Text="Custo da Viagem" Style="{StaticResource Titulo}" />
                     <StackLayout Orientation="Horizontal">
-                        <Label>
+                        <Label HorizontalOptions="CenterAndExpand">
                             <Label.FormattedText>
                                 <FormattedString>
-                                    <Span Text="Combustivel" />
-                                    <Span x:Name="spn_custo_combustivel" TextColor="Red"/>
+                                    <Span Text="Combustível: " />
+                                    <Span x:Name="spn_custo_combustivel" TextColor="DarkRed"/>
                                 </FormattedString>
                             </Label.FormattedText>
                         </Label>
-                        <Label>
+                        <Label HorizontalOptions="CenterAndExpand" >
                             <Label.FormattedText>
                                 <FormattedString>
-                                    <Span Text="Pedagio"/>
-                                    <Span x:Name="spn_custo_pedagios" TextColor="Red"/>
+                                    <Span Text="Pedágios: " />
+                                    <Span x:Name="spn_custo_pedagios" TextColor="DarkRed"/>
                                 </FormattedString>
                             </Label.FormattedText>
                         </Label>
                     </StackLayout>
-                    <Label x:Name="lbl_custo_viagem" FontSize="Title" HorizontalTextAlignment="Center" TextColor="Red"/>
+                    <Label x:Name="lbl_custo_viagem" FontSize="Title" 
+                           HorizontalTextAlignment="Center" 
+                           TextColor="DarkRed" />
                 </StackLayout>
             </Frame>
         </StackLayout>
-        
+
     </ContentPage.Content>
 </ContentPage>

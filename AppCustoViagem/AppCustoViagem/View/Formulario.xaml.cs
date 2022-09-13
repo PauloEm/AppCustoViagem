@@ -24,20 +24,23 @@ namespace AppCustoViagem.View
             {
                 Pedagio p = new Pedagio
                 {
-                    Localização = txt_localizacao.Text,
+                    Localizacao = txt_localizacao.Text,
                     Valor = Convert.ToDouble(txt_valor.Text)
                 };
+
                 App.ListaPedagios.Add(p);
 
-                await DisplayAlert("Parabéns!", "Pedágio adicionado", "Ok");
+                
+
+                await DisplayAlert("Deu Certo!", "Pedágio Adicionado", "OK");
 
                 await Navigation.PopAsync();
 
-            } catch (Exception ex)
-            {
-                await DisplayAlert("Ops", ex.Message, "Ok");
             }
-
+            catch (Exception ex)
+            {
+                await DisplayAlert("Ops", ex.Message, "OK");
+            }
         }
     }
 }

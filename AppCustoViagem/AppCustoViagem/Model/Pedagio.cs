@@ -31,5 +31,7 @@ namespace AppCustoViagem.Model
                 _valor = value;
             }
         }
+
+        public string Localizacao { get; internal set; }
     }
 }

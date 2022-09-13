@@ -3,21 +3,25 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="AppCustoViagem.View.Formulario"
              Title="Novo Pedágio">
+
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Salvar" Clicked="ToolbarItem_Clicked"/>
+        <ToolbarItem Text="Salvar" Clicked="ToolbarItem_Clicked" />
     </ContentPage.ToolbarItems>
-    
+
     <ContentPage.Content>
-        
+
         <StackLayout>
-            <Label Text="Localização:" />
-            <Entry x:Name="txt_localizacao" />
+            <Frame>
+                <StackLayout>
+                    <Label Text="Localização:" />
+                    <Entry x:Name="txt_localizacao" />
 
-            <Label Text="Valor:"/>
-            <Entry x:Name="txt_valor" />
-
+                    <Label Text="Valor:" />
+                    <Entry x:Name="txt_valor" Keyboard="Numeric" />
+                </StackLayout>
+            </Frame>
         </StackLayout>
-        
+
     </ContentPage.Content>
-    
+
 </ContentPage>
